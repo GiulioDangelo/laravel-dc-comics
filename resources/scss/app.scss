@@ -1,4 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background-image: url("../img/picsum16.jpg");
@@ -8,4 +13,11 @@ body {
 
 h1 {
     color: red;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
 }

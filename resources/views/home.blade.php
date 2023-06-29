@@ -6,8 +6,9 @@
         <title>Laravel</title>
         @vite('resources/js/app.js')
     </head>
-    <body>
-        <h1 class="text-center">Ciao da vite</h1>
+    <body class="home">
+        <h1 class="text-center">Visualizza fumetti</h1>
         {{-- <img src="{{ Vite::asset('resources/img/picsum30.jpg') }}" alt=""> --}}
+        <button class="home-btn"><a href="{{route('comics.index')}}">fumetti</a></button>
     </body>
 </html>

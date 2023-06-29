@@ -6,9 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+.card-body div{
+margin-top:10px; 
+font-size: 20px;
+}
+</style>
 <body>
-    <div class="card" style="width: 18rem;">
-        <img src="{{ $comic->thumb }}" class="card-img-top">
+    <div class="card" style="max-width:50rem; margin:auto; margin-top:80px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <img src="{{ $comic->thumb }}" class="card-img-top" style="width: 400px">
         <div class="card-body">
             <div>{{ $comic->title }}</div>
             <div>{{ $comic->description }}</div>
