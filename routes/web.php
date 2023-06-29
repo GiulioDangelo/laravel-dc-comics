@@ -15,11 +15,16 @@ use App\Http\Controllers\Guest\ComicController;
 |
 */
 
-Route::get('/', [PageController::class,'home'])->name('home');
-
-Route::get('/comics/{id}', [ComicController::class,'show'])->name('comics.show', compact('comic'));
-
-Route::get('/comics/create', [ComicController::class,'show'])->name('comics.create');
-
-// Route::resource('comics', ComicController::class);
+Route::resource('comics', ComicController::class);
+Route::get('/', [PageController::class,'home']);
 // php artisan make:controller guest/ComicController --resource
+
+
+
+// Route::get('/', [ComicController::class,'home'])->name('home');
+
+// Route::get('/comics/index', [ComicController::class,'index'])->name('comics.index');
+
+// Route::get('/comics/{id}', [ComicController::class,'show'])->name('comics.show');
+
+// Route::get('/comics/create', [ComicController::class,'create'])->name('comics.create');
