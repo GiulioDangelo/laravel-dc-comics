@@ -22,6 +22,7 @@ font-size: 20px;
             <div>{{ $comic->series }}</div>
             <div>{{ $comic->sale_date }}</div>
             <div>{{ $comic->type }}</div>
+            <button><a href="{{route('comics.create')}}">modifica</a></button>
         </div>
       </div>
 </body>
