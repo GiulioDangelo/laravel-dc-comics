@@ -39,13 +39,13 @@ class ComicController extends Controller
     {
         // validazione
         $request->validate([
-            'title'         => 'required|unique:comics|max:255',
-            'description'   => 'required|string',
-            'thumb'         => 'required',
-            'price'         => 'required',
-            'series'        => 'required',
-            'sale_date'     => 'required',
-            'type'          => 'required',
+            'title'         => 'string|required|max:2',
+            'description'   => 'string',
+            'thumb'         => 'string',
+            'price'         => 'string',
+            'series'        => 'string',
+            'sale_date'     => 'date',
+            'type'          => 'string',
         ]);
 
         $data = $request->all();
