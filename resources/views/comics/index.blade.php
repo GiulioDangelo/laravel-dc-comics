@@ -15,8 +15,13 @@
 .card button{
   font-size: 30px;
 }
+
+.add-comic{
+  font-size: 35px;
+}
 </style>
 <body>
+  <button class="add-comic"><a href="{{route('comics.create')}}">aggiungi fumetto</a></button>
   @foreach ($comics as $comic)
 <div class="card comic-card" style="max-width:50rem; margin:auto; margin-top:80px; display:flex; flex-direction:column; align-items:center; text-align:center;">
   <img src="{{ $comic->thumb }}" class="card-img-top" style="width: 400px">
