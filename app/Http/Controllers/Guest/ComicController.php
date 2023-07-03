@@ -39,7 +39,7 @@ class ComicController extends Controller
     {
         // validazione
         $request->validate([
-            'title'         => 'string|required|max:2',
+            'title'         => 'string|required',
             'description'   => 'string',
             'thumb'         => 'string',
             'price'         => 'string',
@@ -82,9 +82,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -94,9 +94,31 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'title'         => 'string|required',
+            'description'   => 'string',
+            'thumb'         => 'string',
+            'price'         => 'string',
+            'series'        => 'string',
+            'sale_date'     => 'date',
+            'type'          => 'string',
+        ]);
+
+        $comic->title        = $data['title'];
+        $comic->description  = $data['description'];
+        $comic->thumb        = $data['thumb'];
+        $comic->price        = $data['price'];
+        $comic->series       = $data['series'];
+        $comic->sale_date    = $data['sale_date'];
+        $comic->type         = $data['type'];
+        $comic->update();
+
+
+        return to_route('comics.index',['comic' => $comic ->id]);
     }
 
     /**
