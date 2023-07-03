@@ -3,9 +3,8 @@
   @section('contents') 
 
   @if (session('success'))
-  @php
-      $comic = session('success')
-  @endphp
+  @php $comic = session('success') @endphp
+
   <div class="alert alert-danger">
     {{session('success')}}
   </div>
@@ -18,9 +17,7 @@
 
 
   @if (session('restore_success'))
-  @php
-      $comic = session('restore_success')
-  @endphp
+  @php $comic = session('restore_success') @endphp
   <div class="alert alert-success">
     il fumetto e' stato ripristinato
   </div>
