@@ -13,7 +13,8 @@
 @endif
 
 
-<form method="POST" action="{{ route('comics.update', ['comic' => $comic ->id])}}">
+<form method="POST" action="{{ route('comics.update', ['comic' => $comic ->id])}}"
+  class="d-inline-block">
 @csrf
 @method('PUT')
 
@@ -53,6 +54,14 @@
   <input class="form-control" id="type" name="type" value="{{old('type', $comic ->type)}}">
 </div>
 
-<button type="submit">invia</button>
+<button class="btn btn-success" type="submit">invia</button>
+
+<form action="{{ route('comics.destroy', ['comic' => $comic -> id]) }}" method="post"
+class="d-inline-block">
+  @method('delete')
+  <button class="btn btn-danger">delete</button>
 </form>
+
+</form>
+
 @endsection

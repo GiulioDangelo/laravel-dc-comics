@@ -10,7 +10,9 @@
         <div>{{ $comic->sale_date }}</div>
         <div>{{ $comic->type }}</div>
     </div>
-    <button><a href="{{ route('comics.edit', ['comic' => $comic -> id]) }}">edit</a></button>
+
+    <button class="btn btn-primary"><a class="text-light" href="{{ route('comics.edit', ['comic' => $comic -> id]) }}">edit</a></button>
+
 </div>
 @endsection
 </body>

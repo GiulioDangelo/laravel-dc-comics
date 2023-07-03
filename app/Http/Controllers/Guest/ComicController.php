@@ -127,8 +127,18 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return to_route('comics.index')->with('success','Comic deleted');
+    }
+
+    public function restore($id){
+        Comic::withTrashed()->where('id',$id)->restore();
+
+        $comic = Comic::find($id); 
+
+       return to_route('comics.index')->with('restore_success',$comic);
     }
 }

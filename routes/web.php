@@ -18,6 +18,7 @@ use App\Http\Controllers\Guest\ComicController;
 Route::resource('comics', ComicController::class);
 Route::get('/', [PageController::class,'home']);
 // php artisan make:controller guest/ComicController --resource
+Route::post('/comics/{comic}/restore', [ComicController::class,'restore'])->name('comics.restore');
 
 
 
