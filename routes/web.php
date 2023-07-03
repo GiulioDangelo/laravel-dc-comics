@@ -15,10 +15,12 @@ use App\Http\Controllers\Guest\ComicController;
 |
 */
 
+Route::get('/comics/trash', [ComicController::class,'trash'])->name('comics.trash');
 Route::resource('comics', ComicController::class);
 Route::get('/', [PageController::class,'home']);
 // php artisan make:controller guest/ComicController --resource
 Route::post('/comics/{comic}/restore', [ComicController::class,'restore'])->name('comics.restore');
+Route::delete('/comics/{comic}/hardDelete', [ComicController::class,'hardDelete'])->name('comics.hardDelete');
 
 
 

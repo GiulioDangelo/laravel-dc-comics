@@ -6,7 +6,7 @@
   @php $comic = session('success') @endphp
 
   <div class="alert alert-danger">
-    {{session('success')}}
+    hai eliminato con successo il fumetto
   </div>
 
   <form action="{{ route("comics.restore",['comic' => $comic])}}" method="post">
@@ -23,7 +23,9 @@
   </div>
   @endif
 
-  <button class="add-comic"><a href="{{route('comics.create')}}">aggiungi fumetto</a></button>
+  <button class="add-comic btn btn-primary"><a class="text-light" href="{{route('comics.create')}}">aggiungi fumetto</a></button>
+
+  <button class="trash btn btn-primary mt-4"><a class="text-light" href="{{route('comics.trash')}}">cestino</a></button>
 
   @foreach ($comics as $comic)
 <div class="card comic-card" style="max-width:50rem; margin:auto; margin-top:80px; display:flex; flex-direction:column; align-items:center; text-align:center;">

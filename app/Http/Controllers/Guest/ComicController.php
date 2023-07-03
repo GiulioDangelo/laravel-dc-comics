@@ -131,7 +131,7 @@ class ComicController extends Controller
     {
         $comic->delete();
 
-        return to_route('comics.index')->with('success','Comic deleted');
+        return to_route('comics.index')->with('success', $comic);
     }
 
     public function restore($id){
@@ -140,5 +140,17 @@ class ComicController extends Controller
         $comic = Comic::find($id); 
 
        return to_route('comics.index')->with('restore_success',$comic);
+    }
+
+    public function trash(){
+        $trash = Comic::onlyTrashed()->paginate(5);
+        return view('comics.trash',compact('trash'));
+    }
+
+    public function hardDelete($id){
+        $comic = Comic::withTrashed()->find($id);
+        $comic->forceDelete();
+        
+        return to_route('comics.trash')->with('success', $comic);
     }
 }
